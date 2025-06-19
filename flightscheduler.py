@@ -10,18 +10,38 @@ import re
 load_dotenv()
 
 TOKEN = os.getenv('DISCORD_TOKEN')
-GUILD_ID = int(os.getenv('GUILD_ID'))
-REQUIRED_ROLE_ID = int(os.getenv('REQUIRED_ROLE_ID'))
-WEBHOOK_URL = os.getenv('WEBHOOK_URL')
-WEBHOOK_MESSAGE_ID = os.getenv('WEBHOOK_MESSAGE_ID')
-LOGGING_CHANNEL_ID = int(os.getenv('LOGGING_CHANNEL_ID'))
-ANNOUNCEMENT_CHANNEL_ID = int(os.getenv('ANNOUNCEMENT_CHANNEL_ID'))
+GUILD_ID="1288926604415733854"
+REQUIRED_ROLE_ID="1288926707285495941"
+ANNOUNCEMENT_CHANNEL_ID="1290777608782483640"
+WEBHOOK_URL="https://discord.com/api/webhooks/1290778044948283483/bquY_ka1ndRd7OL7tpZYJUuw5RVQTch0fe_3ddG-uPYTnXOvOZVGZTeY3c9BYAlkuPBD"
+WEBHOOK_MESSAGE_ID="1290778370749104263"
+LOGGING_CHANNEL_ID="1288927464080543806"
 
-from embeds import (
-    flighterrorembed,
-    flightsuccessembed,
-    flightstepembed,
-)
+main_color = 12559471
+error_color = 6113881
+
+def flighterrorembed(msg):
+    return discord.Embed(
+        title="<:Warning:1375535050397061211> Error",
+        description=msg,
+        color=error_color
+    )
+
+def flightsuccessembed(msg):
+    return discord.Embed(
+        title="<:Tick:1375535083351572530> Success",
+        description=msg,
+        color=main_color
+    )
+
+def flightstepembed(msg):
+    embed = discord.Embed(
+        title="Creating a flight",
+        description=msg,
+        color=main_color
+    )
+    embed.set_footer(text="Reply with 'Cancel' to cancel flight creation.")
+    return embed
 
 class FlightScheduler(commands.Cog):
     def __init__(self, bot: commands.Bot):
