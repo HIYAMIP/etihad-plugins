@@ -27,12 +27,12 @@ class FlightScheduler(commands.Cog):
         self.bot: ModmailBot = bot
         # Load config from env or your config management
         self.TOKEN: str = bot.config.get("TOKEN")  # or however your bot config is accessed
-        self.GUILD_ID: int = int(bot.config.get("GUILD_ID", 0))
-        self.REQUIRED_ROLE_ID: int = int(bot.config.get("REQUIRED_ROLE_ID", 0))
-        self.ANNOUNCEMENT_CHANNEL_ID: int = int(bot.config.get("ANNOUNCEMENT_CHANNEL_ID", 0))
-        self.WEBHOOK_URL: str = bot.config.get("WEBHOOK_URL")
-        self.WEBHOOK_MESSAGE_ID: int = int(bot.config.get("WEBHOOK_MESSAGE_ID", 0))
-        self.LOGGING_CHANNEL_ID: int = int(bot.config.get("LOGGING_CHANNEL_ID", 0))
+        GUILD_ID="1288926604415733854"
+        REQUIRED_ROLE_ID="1288926707285495941"
+        ANNOUNCEMENT_CHANNEL_ID="1290777608782483640"
+        WEBHOOK_URL="https://discord.com/api/webhooks/1290778044948283483/bquY_ka1ndRd7OL7tpZYJUuw5RVQTch0fe_3ddG-uPYTnXOvOZVGZTeY3c9BYAlkuPBD"
+        WEBHOOK_MESSAGE_ID="1290778370749104263"
+        LOGGING_CHANNEL_ID="1288927464080543806"
 
         self.update_webhook.start()
 
